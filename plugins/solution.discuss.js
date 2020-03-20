@@ -73,7 +73,7 @@ function getSolution(problem, lang, cb) {
 
 plugin.getProblem = function(problem, cb) {
   plugin.next.getProblem(problem, function(e, problem) {
-    if (e || !session.argv.solution) return cb(e, problem);
+    if (e || !session.argv || !session.argv.solution) return cb(e, problem);
 
     var lang = session.argv.lang;
     getSolution(problem, lang, function(e, solution) {
